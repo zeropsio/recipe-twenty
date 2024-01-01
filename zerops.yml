@@ -1,0 +1,10 @@
+# Service hostname to which the application will be deployed.
+api:
+  build:
+    base: [nodejs@18]
+    build:
+      - npm i
+    cache: [node_modules]
+    deploy: [index.js, node_modules, package.json]
+  run:
+    start: npm start
