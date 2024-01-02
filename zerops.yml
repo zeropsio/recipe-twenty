@@ -21,20 +21,20 @@ api:
     build:
       - |
         mkdir dist
-        mkdir node-modules
+        mkdir node_modules
         git clone https://github.com/twentyhq/twenty.git
       - |
         cd twenty
         yarn
         yarn nx build twenty-server
         cp -r ./packages/twenty-server/dist/* ../dist
-        cp -r ./packages/twenty-server/node-modules/* ../node_modules
+        cp -r ./packages/twenty-server/node_modules/* ../node_modules
       - |
         cd twenty/packages/twenty-server
         npx ts-node ./scripts/setup-db.ts
         yarn typeorm:migrate
         yarn command workspace:seed:dev
     cache: [node_modules]
-    deploy: [./node-modules/ ./dist/]
+    deploy: [./node_modules/ ./dist/]
   run:
     start: node dist/src/main
