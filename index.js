@@ -4,12 +4,10 @@ const app = express();
 const port = 3010;
 
 app.get('/', (req, res) => {
-	const fullUrl = url.format({
-		protocol: req.protocol,
-		host: req.get('host'),
-		pathname: req.originalUrl
-	});
-	res.send('Hello World:', fullUrl);
+	const protocol = req.protocol;
+	const host = req.get('host');
+	const pathname = req.originalUrl;
+	res.send('Hello World:', protocol, host, pathname);
 });
 
 app.listen(port, () => {
