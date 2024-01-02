@@ -6,6 +6,6 @@ app:
       - npm i
       - git clone https://github.com/twentyhq/twenty.git
     cache: [node_modules]
-    deploy: [index.js, index.html, favicon.ico, node_modules, package.json]
+    deploy: [index.js, node_modules, package.json, public]
   run:
     start: npm start
