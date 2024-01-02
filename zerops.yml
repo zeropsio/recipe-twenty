@@ -27,7 +27,7 @@ api:
         yarn nx build twenty-server
         cp -r ./packages/twenty-server/dist/* ../public
       - |
-        cd twenty
+        cd twenty/packages/twenty-server
         npx ts-node ./scripts/setup-db.ts
         yarn typeorm:migrate
         yarn command workspace:seed:dev
