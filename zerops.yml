@@ -4,7 +4,8 @@ api:
     base: [nodejs@18]
     build:
       - npm i
+      - git clone https://github.com/twentyhq/twenty.git
     cache: [node_modules]
-    deploy: [index.js, node_modules, package.json]
+    deploy: [index.js, index.html, favicon.ico, node_modules, package.json]
   run:
     start: npm start

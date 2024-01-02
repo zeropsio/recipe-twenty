@@ -1,17 +1,16 @@
 {
-  "name": "recipe-twenty",
-  "version": "0.0.1",
-  "description": "The concept of pre-prepared skeletons demonstrates the way how to set up and use technologies Zerops is supporting.",
-  "main": "index.js",
-  "scripts": {
-    "start": "node ./index.js"
-  },
-  "author": "Miloš Lapiš",
-  "license": "GNU",
-  "private": false,
-  "dependencies": {
-    "express": "4.18.2"
-  },
-  "devDependencies": {
-  }
+	"name": "recipe-twenty",
+	"version": "0.0.1",
+	"description": "The concept of pre-prepared skeletons demonstrates the way how to set up and use technologies Zerops is supporting.",
+	"main": "index.js",
+	"scripts": {
+		"start": "node ./index.js"
+	},
+	"author": "Miloš Lapiš",
+	"license": "GNU",
+	"private": false,
+	"dependencies": {
+		"express": "4.18.2"
+	},
+	"devDependencies": {}
 }
