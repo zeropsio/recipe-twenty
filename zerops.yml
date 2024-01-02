@@ -10,7 +10,11 @@ app:
         yarn
         yarn nx build twenty-front
         cp -r ./packages/twenty-front/build/* ../public
-    cache: [node_modules]
+    cache: [
+      node_modules,
+      ./twenty/node_modules,
+      ./twenty/packages/twenty-front/node_modules
+    ]
     deploy: [index-app.js, ./node_modules/, package.json, ./public/]
   run:
     start: npm start
@@ -19,23 +23,23 @@ api:
   build:
     base: [nodejs@18]
     build:
-      - |
-        mkdir dist
-        mkdir node_modules
-        git clone https://github.com/twentyhq/twenty.git
+      - git clone https://github.com/twentyhq/twenty.git
       - |
         cd twenty
         yarn
         yarn nx build twenty-server
-        cp -r ./packages/twenty-server/dist/* ../dist
-        cp -r ./packages/twenty-server/node_modules/* ../node_modules
       - |
         cd twenty/packages/twenty-server
         npx ts-node ./scripts/setup-db.ts
         yarn typeorm:migrate
         yarn command workspace:seed:dev
-      - ls -l
-    cache: [node_modules]
-    deploy: [node_modules dist]
+    cache: [
+      ./twenty/node_modules,
+      ./twenty/packages/twenty-server/node_modules
+    ]
+    deploy: [
+      ./twenty/packages/twenty-server/~/node_modules/,
+      ./twenty/packages/twenty-server/~/dist/
+    ]
   run:
     start: node dist/src/main
