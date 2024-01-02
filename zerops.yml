@@ -13,7 +13,7 @@ app:
     cache: [node_modules]
     deploy: [index-app.js, node_modules, package.json, public]
   run:
-    start: npm start-app
+    start: npm start
 # Service hostname to which the application will be deployed.
 api:
   build:
