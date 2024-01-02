@@ -1,5 +1,5 @@
 # Service hostname to which the application will be deployed.
-api:
+app:
   build:
     base: [nodejs@18]
     build:
