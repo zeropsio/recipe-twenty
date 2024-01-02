@@ -11,7 +11,7 @@ app:
         yarn nx build twenty-front
         cp -r ./packages/twenty-front/build/* ../public
     cache: [node_modules]
-    deploy: [index.js, node_modules, package.json, public]
+    deploy: [index-app.js, node_modules, package.json, public]
   run:
     start: npm start-app
 # Service hostname to which the application will be deployed.
