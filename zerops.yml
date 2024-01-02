@@ -5,6 +5,11 @@ app:
     build:
       - npm i
       - git clone https://github.com/twentyhq/twenty.git
+      - |
+        cd twenty
+        yarn nx build twenty-front
+        pwd
+        ls ./packages/twenty-front/build
     cache: [node_modules]
     deploy: [index.js, node_modules, package.json, public]
   run:
