@@ -1,9 +1,15 @@
 const express = require('express');
+const url = require('url');
 const app = express();
 const port = 3010;
 
 app.get('/', (req, res) => {
-	res.send('Hello World!');
+	const fullUrl = url.format({
+		protocol: req.protocol,
+		host: req.get('host'),
+		pathname: req.originalUrl
+	});
+	res.send('Hello World:', fullUrl);
 });
 
 app.listen(port, () => {
