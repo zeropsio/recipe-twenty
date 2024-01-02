@@ -34,7 +34,8 @@ api:
         npx ts-node ./scripts/setup-db.ts
         yarn typeorm:migrate
         yarn command workspace:seed:dev
+      - ls -l
     cache: [node_modules]
-    deploy: [./node_modules/ ./dist/]
+    deploy: [node_modules dist]
   run:
     start: node dist/src/main
