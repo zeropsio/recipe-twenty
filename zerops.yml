@@ -9,8 +9,7 @@ app:
         cd twenty
         yarn
         yarn nx build twenty-front
-        pwd
-        ls ./packages/twenty-front/build
+        cp -r ./packages/twenty-front/build ../public
     cache: [node_modules]
     deploy: [index.js, node_modules, package.json, public]
   run:
