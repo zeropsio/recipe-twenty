@@ -2,6 +2,8 @@
 app:
   build:
     base: [nodejs@18]
+    prepare:
+      - zcli cache disable
     build:
       - npm i
       - git clone https://github.com/twentyhq/twenty.git
@@ -31,9 +33,11 @@ api:
         yarn command workspace:seed:dev
     cache: []
     deploy: [
-      ./twenty/packages/twenty-server/~/package.json,
-      ./twenty/packages/twenty-server/~/node_modules/,
-      ./twenty/packages/twenty-server/~/dist/
+      ./twenty/~/package.json,
+      ./twenty/~/node_modules/,
+      ./twenty/packages/~/twenty-server/package.json,
+      ./twenty/packages/~/twenty-server/node_modules/,
+      ./twenty/packages/~/twenty-server/dist/
     ]
   run:
-    start: node dist/src/main
+    start: node twenty-server/dist/src/main
