@@ -7,6 +7,7 @@ app:
       - git clone https://github.com/twentyhq/twenty.git
       - |
         cd twenty
+        year
         yarn nx build twenty-front
         pwd
         ls ./packages/twenty-front/build
