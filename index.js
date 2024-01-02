@@ -7,7 +7,7 @@ app.get('/', (req, res) => {
 	const protocol = req.protocol;
 	const host = req.get('host');
 	const pathname = req.originalUrl;
-	res.send('Hello World:', url, protocol, host, pathname);
+	res.send('Hello World:' + url + '|' + protocol + '|' + host + '|' + pathname);
 });
 
 app.listen(port, () => {
