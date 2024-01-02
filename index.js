@@ -1,13 +1,13 @@
 const express = require('express');
-const url = require('url');
 const app = express();
 const port = 3010;
 
 app.get('/', (req, res) => {
+	const url = req.url;
 	const protocol = req.protocol;
 	const host = req.get('host');
 	const pathname = req.originalUrl;
-	res.send('Hello World:', protocol, host, pathname);
+	res.send('Hello World:', url, protocol, host, pathname);
 });
 
 app.listen(port, () => {
