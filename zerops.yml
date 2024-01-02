@@ -10,11 +10,7 @@ app:
         yarn
         yarn nx build twenty-front
         cp -r ./packages/twenty-front/build/* ../public
-    cache: [
-      node_modules,
-      ./twenty/node_modules,
-      ./twenty/packages/twenty-front/node_modules
-    ]
+    cache: [./node_modules/]
     deploy: [index-app.js, ./node_modules/, package.json, ./public/]
   run:
     start: npm start
@@ -33,11 +29,9 @@ api:
         npx ts-node ./scripts/setup-db.ts
         yarn typeorm:migrate
         yarn command workspace:seed:dev
-    cache: [
-      ./twenty/node_modules,
-      ./twenty/packages/twenty-server/node_modules
-    ]
+    cache: []
     deploy: [
+      ./twenty/packages/twenty-server/~/package.json,
       ./twenty/packages/twenty-server/~/node_modules/,
       ./twenty/packages/twenty-server/~/dist/
     ]
