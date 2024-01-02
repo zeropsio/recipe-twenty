@@ -25,13 +25,13 @@ api:
         cd twenty
         yarn
         yarn nx build twenty-server
-        cp -r ./packages/twenty-server/dist/* ../public
+        cp -r ./packages/twenty-server/dist/* ../dist
       - |
         cd twenty/packages/twenty-server
         npx ts-node ./scripts/setup-db.ts
         yarn typeorm:migrate
         yarn command workspace:seed:dev
     cache: [node_modules]
-    deploy: [public]
+    deploy: [./twenty/packages/twenty-server/~/node-modules/ dist]
   run:
-    start: node public/src/main
+    start: node dist/src/main
